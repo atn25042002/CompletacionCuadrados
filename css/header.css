@@ -1,0 +1,30 @@
+#titulo{
+    text-align: center;
+}
+
+.navbar {
+    background-color: #223a7e;
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    color: #fff;
+}
+
+.nav-links{
+    display: flex;
+    align-items: center;
+}
+
+.navlink{
+    color: #fff;
+    margin: 5px 10px 5px 10px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    /*transition: color 0.3s ease, transform 0.3s ease;*/
+}
+
+.navlink:hover{
+    color: rgb(33, 109, 209);
+    transform: scale(1.3);
+}

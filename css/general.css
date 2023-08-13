@@ -1,4 +1,17 @@
 div{
     /*border-color: black;*/
-    border: 1px solid #000;
+    /*border: 1px solid #000;*/
+}
+
+.boton{
+    padding: 5px 5px 5px 5px;
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    transition: background-color 0.1s ease;
+}
+
+.boton:hover{
+    cursor: pointer;
+    background-color: rgb(190, 190, 190);
 }

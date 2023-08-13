@@ -12,3 +12,13 @@
 .coeficiente{
     width: 60px;
 }
+
+#botones{
+    padding-top: 10px;
+    display: flex;    
+    align-items: center;
+}
+
+#label1{
+    margin-right: 275px;
+}

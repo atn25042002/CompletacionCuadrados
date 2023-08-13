@@ -8,12 +8,14 @@
     <link rel="stylesheet" href="./css/header.css">
     <link rel="stylesheet" href="./css/general.css">
     <link rel="stylesheet" href="./css/content.css">
+    <script src="./js/navbar.js"></script>
+    <script src="./js/raices.js"></script>
 </head>
 <body>
     <div id="titulo"><h1>RESOLVEDOR DE ECUACIONES CUADRATICAS</h1></div>
     <div class="navbar">
         <div class="nav-links">
-          <div><a class="navlink" href="#">Inicio</a></div>
+          <div onclick="helpPage()"><a class="navlink" href="#">Inicio</a></div>
           <div><a class="navlink" href="#">Calcular</a></div>
           <div><a class="navlink" href="#">Suma</a></div>
           <div><a class="navlink" href="#">Gráficos</a></div>
@@ -21,15 +23,16 @@
     </div>
     <div id="page">
         <div id="inputContent">
-            <label for="numero">Ingrese un número:</label>
+            <label for="numero" id="label1">Ingrese un número:</label>
             <input type="number" class="coeficiente" id="coeficienteA" name="coeficienteA" step="1">
             <label for="">x² +</label>
             <input type="number" class="coeficiente" id="coeficienteB" name="coeficienteB" step="1">
             <label for="">x +</label>
             <input type="number" class="coeficiente" id="coeficienteC" name="coeficienteC" step="1">
+            <label for=""> = 0</label>
         </div>
         <div id="botones">
-            <button>Calcular raices</button>
+            <button class="boton">Calcular raices</button>
         </div>
         <div id="resolucion">
             <div id="espacio">

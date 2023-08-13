@@ -1,4 +1,8 @@
-<div id="raices">
+<script src="../js/raices.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<link rel="stylesheet" href="../css/content.css">
+<link rel="stylesheet" href="../css/general.css">
+<div id="raices">        
     <div id="inputContent">
         <label for="numero" id="label1">Ingrese un número:</label>
         <input type="number" class="coeficiente" id="coeficienteA" name="coeficienteA" step="1">
@@ -9,11 +13,14 @@
         <label for=""> = 0</label>
     </div>
     <div id="botones">
-        <button class="boton">Calcular raices</button>
+        <button class="boton" onclick="calcular()">Calcular raices</button>
     </div>
     <div id="resolucion">
         <div id="espacio">
             <p>Aqui ira la resolucion</p>
+            <ul id="lista">
+
+            </ul>
         </div>
     </div>
 </div>

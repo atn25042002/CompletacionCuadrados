@@ -1,11 +1,14 @@
 #inputContent{
-    display: inline-block;    
+    display: flex;
     align-items: center;
-    padding: 5px 5px 5px 5px;
+    justify-content: space-between;
+    padding: 5px 350px 5px 350px ;
 }
 
 .coeficiente{
     width: 60px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #botones{

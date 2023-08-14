@@ -37,8 +37,8 @@ function calcular(){
         lista.appendChild(create("p",`x\u2081 = ${b}`));
     }
     else{
-        lista.appendChild(create("p",`x\u2081 = ${-b + parseFloat(sum)}`));
-        lista.appendChild(create("p",`x\u2082 = ${-b - sum}`));
+        lista.appendChild(create("p",`x\u2081 = ${redondeo(-b + parseFloat(sum))}`));
+        lista.appendChild(create("p",`x\u2082 = ${redondeo(-b - sum)}`));
     }
     let boton= document.createElement("button");
     boton.textContent = "Imprimir solución";
@@ -59,7 +59,8 @@ function create(ent, cont){
 }
 
 function redondeo(num){
-    if(num.toString().length > 6){
+    let ndec= num.toString().length - num.toString().indexOf('.') - 1;
+    if(ndec > 6){
         return num.toFixed(6);
     }else{
         return num;

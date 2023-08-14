@@ -40,22 +40,75 @@ function calcular(){
         lista.appendChild(create("p",`x\u2081 = ${redondeo(-b + parseFloat(sum))}`));
         lista.appendChild(create("p",`x\u2082 = ${redondeo(-b - sum)}`));
     }
+
     let boton= document.createElement("button");
     boton.textContent = "Imprimir solución";
-    boton.classList.add("boton");
-    
+    boton.classList.add("botonR");
+    boton.id="btnprint";
     boton.addEventListener("click", function() {
       window.print();
     });
-
     lista.appendChild(boton);
+
+    let btnleer= document.createElement("button");
+    btnleer.textContent = "Explicación por voz";
+    btnleer.classList.add("botonR");
+    btnleer.id="btnleer";
+    btnleer.addEventListener("click", function() {
+      leer();
+    });
+    lista.appendChild(btnleer);
+
+    let btncancelar= document.createElement("button");
+    btncancelar.textContent = "Cancelar lectura";
+    btncancelar.classList.add("botonR");
+    btncancelar.id="btncancelar";
+    btncancelar.style.display = "none";
+    btncancelar.addEventListener("click", function() {
+      cancelarLeer();
+    });
+    lista.appendChild(btncancelar);
 }
 
-function create(ent, cont){
+function create(ent, cont, des){
+    if(des == undefined){
+        des = cont;
+    }
     let element= document.createElement(ent);
     element.classList.add("paso");
+    element.setAttribute("data-descripition", des);
     element.textContent=cont.replace(/1x/g,"x").replace(/\+ -/g,"- ");
     return element;
+}
+
+function leer(){
+    document.getElementById("btncancelar").style.display = "inline";
+    let elementos = document.querySelectorAll(".paso");
+    elementos[0].scrollIntoView({ block: "center" });
+
+    elementos.forEach(function(elemento) {        
+        var mensaje = new SpeechSynthesisUtterance(elemento.getAttribute("data-descripition"));
+        mensaje.addEventListener("start", function() {
+            console.log("Inicio de la lectura en voz alta.");
+            console.log(elemento.textContent);
+            elemento.style.backgroundColor = "yellow";
+          });
+          
+          mensaje.addEventListener("end", function() {
+            console.log("Fin de la lectura en voz alta.");
+            elemento.removeAttribute("style");
+          });        
+        window.speechSynthesis.speak(mensaje);        
+    });
+}
+
+function cancelarLeer(){
+    window.speechSynthesis.cancel();
+    var elementosConEstilo = document.querySelectorAll("[style]");
+    elementosConEstilo.forEach(function(elemento) {
+      elemento.removeAttribute("style");
+    });
+    document.getElementById("btncancelar").style.display = "none";
 }
 
 function redondeo(num){

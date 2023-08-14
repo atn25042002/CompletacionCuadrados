@@ -15,15 +15,16 @@
     <div id="titulo"><h1>RESOLVEDOR DE ECUACIONES CUADRATICAS</h1></div>
     <div class="navbar">
         <div class="nav-links">
-          <div ><a class="navlink">Inicio</a></div>
+          <div onclick="chargePage('main')" ><a class="navlink">Inicio</a></div>
           <div onclick="chargePage('raices')" ><a class="navlink">Calcular</a></div>
-          <div><a class="navlink">Suma</a></div>
-          <div><a class="navlink">Gráficos</a></div>
+          <div onclick="chargePage('main')" ><a class="navlink">Suma</a></div>
+          <div onclick="chargePage('main')" ><a class="navlink">Gráficos</a></div>
           <div onclick="chargePage('help')" ><a class="navlink">Ayuda</a></div>
         </div>
     </div>
     <div id="page">
         <div id="espacio">
+            <iframe src="./pages/main.html" id="frame"></iframe>
         </div>
     </div>
 </body>

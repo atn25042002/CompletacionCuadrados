@@ -28,5 +28,6 @@
 
 .navlink:hover{
     color: rgb(33, 109, 209);
+    cursor: pointer;
     transform: scale(1.3);
 }

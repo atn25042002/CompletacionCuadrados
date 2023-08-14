@@ -27,7 +27,7 @@ function calcular(){
     }
     lista.appendChild(create("li","Despejamos las raices"));
     lista.appendChild(create("p",`x + ${b} = ± √(${dis}) ${i}`));
-    lista.appendChild(create("p",`x = - ${b} ± √(${dis}) ${i}`));
+    lista.appendChild(create("p",`x = ${-b} ± √(${dis}) ${i}`));
     lista.appendChild(create("li","Raices halladas: "));
     let sum= redondeo(Math.sqrt(dis));
     if(i == "i"){

@@ -10,15 +10,15 @@ function calcular(){
     if(a != 1){
         lista.appendChild(create("li","Dividimos entre en primer coeficiente:"));
         lista.appendChild(create("p",`x² + (${b}/${a})x + (${c}/${a}) = 0`));
-        b= (b/a).toFixed(6);
-        c= (c/a).toFixed(6);
+        b= redondeo(b/a);
+        c= redondeo(c/a);
         lista.appendChild(create("p",`x² + (${b})x + (${c}) = 0`));
     }
     lista.appendChild(create("li","Completamos cuadrados"));
     lista.appendChild(create("p",`x² + 2(${b}/2)x + (${b}/2)² + (${c}) = (${b}/2)²`));
     b=b/2;
     lista.appendChild(create("p",`x² + 2(${b})x + (${b})² = (${b})² - (${c})`));
-    let dis= (Math.pow(b,2)-c).toFixed(4);
+    let dis= redondeo(Math.pow(b,2)-c);
     lista.appendChild(create("p",`(x + ${b})² = ${dis}`));
     let i ="";
     if(dis < 0){
@@ -29,7 +29,7 @@ function calcular(){
     lista.appendChild(create("p",`x + ${b} = ± √(${dis})${i}`));
     lista.appendChild(create("p",`x = - ${b} ± √(${dis})${i}`));
     lista.appendChild(create("li","Raices halladas: "));
-    let sum= Math.sqrt(dis).toFixed(6);
+    let sum= redondeo(Math.sqrt(dis));
     if(i == "i"){
         lista.appendChild(create("p",`x\u2081 = - ${b} + ${sum} ${i}`));
         lista.appendChild(create("p",`x\u2082 = - ${b} - ${sum} ${i}`));
@@ -47,6 +47,14 @@ function create(ent, cont){
     element.classList.add("paso");
     element.textContent=cont.replace(/1x/g,"x").replace(/\+ -/g,"- ");
     return element;
+}
+
+function redondeo(num){
+    if(num.toString().length > 6){
+        return num.toFixed(6);
+    }else{
+        return num;
+    }
 }
 
 /*

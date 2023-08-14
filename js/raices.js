@@ -40,6 +40,15 @@ function calcular(){
         lista.appendChild(create("p",`x\u2081 = ${-b + parseFloat(sum)}`));
         lista.appendChild(create("p",`x\u2082 = ${-b - sum}`));
     }
+    let boton= document.createElement("button");
+    boton.textContent = "Imprimir solución";
+    boton.classList.add("boton");
+    
+    boton.addEventListener("click", function() {
+      window.print();
+    });
+
+    lista.appendChild(boton);
 }
 
 function create(ent, cont){

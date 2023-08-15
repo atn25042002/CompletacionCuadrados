@@ -6,10 +6,10 @@ function calcular(){
     lista.innerHTML= "<ul id='lista'></ul>";
     lista.appendChild(create("h3","RESOLUCIÓN:"))
     lista.appendChild(create("li","La ecuación cuadrática es: "));
-    lista.appendChild(create("p",`${a}x² + ${b}x + ${c} = 0`))
+    lista.appendChild(create("p",`${a}x² + ${b}x + ${c} = 0`,`${a} x cuadrado más ${b} x más ${c} igual a cero`))
     if(a != 1){
         lista.appendChild(create("li","Dividimos entre en primer coeficiente:"));
-        lista.appendChild(create("p",`x² + (${b}/${a})x + (${c}/${a}) = 0`));
+        lista.appendChild(create("p",`x² + (${b}/${a})x + (${c}/${a}) = 0`,`resulta se hace uno x² + (${b}/${a})x + (${c}/${a}) = 0`));
         b= redondeo(b/a);
         c= redondeo(c/a);
         lista.appendChild(create("p",`x² + (${b})x + (${c}) = 0`));

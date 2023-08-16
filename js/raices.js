@@ -9,36 +9,38 @@ function calcular(){
     lista.appendChild(create("p",`${a}x² + ${b}x + ${c} = 0`,`${a} x cuadrado más ${b} x más ${c} igual a cero`))
     if(a != 1){
         lista.appendChild(create("li","Dividimos entre en primer coeficiente:"));
-        lista.appendChild(create("p",`x² + (${b}/${a})x + (${c}/${a}) = 0`,`resulta se hace uno x² + (${b}/${a})x + (${c}/${a}) = 0`));
+        lista.appendChild(create("p",`x² + (${b}/${a})x + (${c}/${a}) = 0`,`Obtenemos x al cuadrado más ${b} sobre ${a} x más ${c} sobre ${a} igual a cero`));
         b= redondeo(b/a);
         c= redondeo(c/a);
-        lista.appendChild(create("p",`x² + (${b})x + (${c}) = 0`));
+        lista.appendChild(create("p",`x² + (${b})x + (${c}) = 0`, `Haciendo las divisiones resulta, x al cuadrado más ${b} x más ${c} igual a cero`));
     }
-    lista.appendChild(create("li","Completamos cuadrados"));
-    lista.appendChild(create("p",`x² + 2(${b}/2)x + (${b}/2)² + (${c}) = (${b}/2)²`));
+    lista.appendChild(create("li","Completamos cuadrados", "Completamos cuadrados reescribiendo el segundo termino"));
+    lista.appendChild(create("p",`x² + 2(${b}/2)x + (${b}/2)² + (${c}) = (${b}/2)²`, `En el segundo termino podemos reescribir ${b} como dos por ${b} entre dos,
+             y sumamos el cuadrado de ${b} sobre 2 a ambos lados de la ecuación.`));
     b=b/2;
-    lista.appendChild(create("p",`x² + 2(${b})x + (${b})² = (${b})² - (${c})`));
+    lista.appendChild(create("p",`x² + 2(${b})x + (${b})² = (${b})² - (${c})`, `Haciendo las divisiones y pasando el tercer termino al otro extremo de la ecuación, 
+    obtenemos x al cuadrado más dos por ${b} x más ${b} al cuadrado es igual a ${b} al cuadrado menos ${c}`));
     let dis= redondeo(Math.pow(b,2)-c);
-    lista.appendChild(create("p",`(x + ${b})² = ${dis}`));
+    lista.appendChild(create("p",`(x + ${b})² = ${dis}`, `Ahora podemos factorizar en el lado izquierdo de la ecuación reemplazando por x más ${b} al cuadrado, mientras que en el lado derecho queda ${dis}`));
     let i ="";
     if(dis < 0){
         i= "i";
         dis = -1*dis;
     }
     lista.appendChild(create("li","Despejamos las raices"));
-    lista.appendChild(create("p",`x + ${b} = ± √(${dis}) ${i}`));
-    lista.appendChild(create("p",`x = ${-b} ± √(${dis}) ${i}`));
+    lista.appendChild(create("p",`x + ${b} = ± √(${dis}) ${i}`,`Aplicamos la raiz cuadrada en ambos lados de la ecuación, en el lado derecho nos resulta dos posibles valores, donde x más ${b}, es igual a mas menos raiz de ${dis} ${i}`));
+    lista.appendChild(create("p",`x = ${-b} ± √(${dis}) ${i}`, `Luego ${b} para al otro lado de la ecuación obteniendo dos respuestas`));
     lista.appendChild(create("li","Raices halladas: "));
     let sum= redondeo(Math.sqrt(dis));
     if(i == "i"){
-        lista.appendChild(create("p",`x\u2081 = - ${b} + ${sum} ${i}`));
-        lista.appendChild(create("p",`x\u2082 = - ${b} - ${sum} ${i}`));
+        lista.appendChild(create("p",`x\u2081 = - ${b} + ${sum} ${i}`, "La primera raiz compleja obtenida sumando el discriminante"));
+        lista.appendChild(create("p",`x\u2082 = - ${b} - ${sum} ${i}`, "La segunda raiz compleja obtenida restando el discriminante"));
     }else if(dis == 0){
-        lista.appendChild(create("p",`x\u2081 = ${b}`));
+        lista.appendChild(create("p",`x\u2081 = ${b}`, "En este caso el discriminante es cero, por lo que ambas raices son iguales"));
     }
     else{
-        lista.appendChild(create("p",`x\u2081 = ${redondeo(-b + parseFloat(sum))}`));
-        lista.appendChild(create("p",`x\u2082 = ${redondeo(-b - sum)}`));
+        lista.appendChild(create("p",`x\u2081 = ${redondeo(-b + parseFloat(sum))}`,"La primera raiz obtenida sumando el discriminante"));
+        lista.appendChild(create("p",`x\u2082 = ${redondeo(-b - sum)}`,"La segunda raiz obtenida restando el discriminante"));
     }
 
     let boton= document.createElement("button");
